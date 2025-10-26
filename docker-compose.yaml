@@ -17,7 +17,7 @@ services:
       volumes:
         # Give Watchtower access to the Docker API so it can manage containers
         - /var/run/docker.sock:/var/run/docker.sock
-        #- ~/.docker/config.json:/config.json:ro
+        - ~/.docker/config.json:/config.json:ro
       environment:
         # Clean up old images after updating, so you don't fill disk
         WATCHTOWER_CLEANUP: "true"

@@ -1,0 +1,11 @@
+name: ghgappv2
+services:
+  ghgapp:
+    image: ihadlab-f2bnbba0fgceaff9.azurecr.io/ghgapp:v2
+    ports:
+      - "3000:3000"
+    env_file:
+      - prod.env
+    environment:
+      NITRO_CLUSTER_WORKERS: "8"
+    restart: always

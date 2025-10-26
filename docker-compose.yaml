@@ -17,11 +17,12 @@ services:
       volumes:
         # Give Watchtower access to the Docker API so it can manage containers
         - /var/run/docker.sock:/var/run/docker.sock
+        - ~/.docker/config.json:/config.json:ro
       environment:
         # Clean up old images after updating, so you don't fill disk
         WATCHTOWER_CLEANUP: "true"
         # How often to check for new images (in seconds). Example: 300 = 5 min.
-        WATCHTOWER_POLL_INTERVAL: "300"
+        WATCHTOWER_POLL_INTERVAL: "30"
       command:
         # Limit Watchtower to only manage ghgapp (safer than updating *everything*)
         - ghgapp
